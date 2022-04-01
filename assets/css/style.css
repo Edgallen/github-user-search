@@ -1,0 +1,295 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap');/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /* background */
+  --background-color: #141C2F;
+  --background-alt-color: #1F2A48;
+
+  /* text */
+  --title-color: #FBFBFE;
+  --text-color: #D9E1EE;
+  --text-alt-color: #959CAE;
+  
+  /* functional */
+  --button-color: #0178FD;
+  --functional-color: #1561BC;
+  --disabled-color: #7C869F;
+
+  /*========== Font and typography ==========*/
+  --body-font: 'IBM Plex Sans Arabic', sans-serif;
+  --biggest-font-size: 3rem;
+  --bigger-font-size: 2.5rem;
+  --big-font-size: 2.2rem;
+  --h1-font-size: 1.7rem;
+  --h2-font-size: 1.2rem;
+  --h3-font-size: 1.125rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+  --smaller-font-size: .75rem;
+  --text-line-height: 2rem;
+
+  /*========== Font weight ==========*/
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+
+  /*========== Margins ==========*/
+  --m-0-25: .25rem;
+  --m-0-5: .5rem;
+  --m-0-75: .75rem;
+  --m-1: 1rem;
+  --m-1-5: 1.5rem;
+  --m-2: 2rem;
+  --m-2-5: 2.5rem;
+  --m-3: 3rem;
+  --m-4: 4rem;
+  --m-4-5: 4.5rem;
+  --m-5: 5rem;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*=============== BASE ===============*/
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: var(--background-color);
+  font-family: var(--body-font);
+  color: var(--text-color);
+}
+
+h1,h2,h3{
+  font-family: var(--body-font);
+  color: var(--title-color);
+}
+
+ul{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+button,
+input{
+  border: none;
+  outline: none;
+}
+
+button{
+  cursor: pointer;
+}
+
+img{
+  max-width: 100%;
+}
+
+span{
+  font-size: var(--normal-font-size);
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.theme__selector {
+  display: flex;
+  align-items: center;
+  gap: var(--m-0-75);
+}
+
+.button {
+  font-family: var(--body-font);
+  font-weight: var(--font-medium);
+  letter-spacing: .04rem;
+  color: var(--title-color);
+  border-radius: .5rem;
+  background-color: var(--button-color);
+  padding: var(--m-0-5) var(--m-1);
+}
+
+/*=============== LAYOUT ===============*/
+.main{
+  overflow: hidden; /* For animation and images*/
+}
+
+.grid{
+  display: grid;
+}
+
+/*=============== HEADER ===============*/
+.header {
+  display: flex;
+  justify-content: center;
+  margin: var(--m-2) var(--m-2)  var(--m-1-5) var(--m-2);
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  width: 320px;
+}
+
+.header__logo {
+  font-size: var(--h2-font-size);
+}
+
+.header__theme-light {
+  color: var(--title-color);
+}
+
+.header__title {
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-semibold);
+  letter-spacing: .18rem;
+}
+
+.header__icon {
+  font-size: var(--normal-font-size);
+}
+
+.header__theme-dark { /* Временный селектор */
+  display: none;
+}
+
+/*=============== SEARCHBAR ===============*/
+.searchbar {
+  display: flex;
+  justify-content: center;
+}
+
+.searchbar__form {
+  display: flex;
+  gap: var(--m-2);
+  border-radius: .6rem;
+  padding: var(--m-0-5);
+  background-color: var(--background-alt-color);
+}
+
+.searchbar__input {
+  display: flex;
+  align-items: center;
+  gap: var(--m-0-75);
+}
+
+.searchbar__icon {
+  font-size: var(--h2-font-size);
+  color: var(--functional-color);
+}
+
+.searchbar__textfield {
+  color: var(--title-color);
+  background-color: var(--background-alt-color);
+}
+
+.searchbar__textfield::placeholder {
+  font-family: var(--body-font);
+  font-weight: var(--font-normal);
+  font-size: var(--small-font-size);
+  word-spacing: .12rem;
+  color: var(--text-color);
+}
+
+/*=============== RESULT ===============*/
+.result {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--m-1);
+}
+
+.result__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--m-1-5);
+  max-width: 326px;
+  padding: var(--m-1-5);
+  border-radius: .6rem;
+  background-color: var(--background-alt-color);
+}
+
+.result__profile {
+  display: flex;
+  gap: var(--m-2);
+}
+
+.result__profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 3rem;
+}
+
+.result__profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.result__profile-link {
+  color: var(--functional-color);
+}
+
+.result__profile-date {
+  word-spacing: 0.2rem;
+}
+
+.result__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--m-1-5);
+}
+
+.result__stats {
+  display: flex;
+  padding: var(--m-0-75) var(--m-1-5);
+  border-radius: .6rem;
+  background-color: var(--background-color);
+  justify-content: space-between;
+}
+
+.result__stats-title {
+  color: var(--text-alt-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-regular);
+}
+
+.result__stats-count {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semibold);
+}
+
+.result__links {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: var(--m-0-5);
+  max-height: 70px;
+}
+
+.result__links-card {
+  display: flex;
+  align-items: center;
+  gap: var(--m-0-75);
+}
+
+.result__links-icon {
+  color: var(--title-color);
+}
+
+.result__links-text {
+  font-size: small;
+  word-spacing: .2rem;
+}
+
+/* Active states */
+.disabled {
+  color: var(--disabled-color);
+}

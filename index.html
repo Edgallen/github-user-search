@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git user search</title>
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--=============== FLAVICON ===============-->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/imgs/flavicon.png">
+  </head>
+  <body>
+    <!--=============== HEADER ===============-->
+    <header class="header">
+      <div class="header__container">
+        <h2 class="header__logo">devfinder</h2>
+
+        <div class="header__theme-light theme__selector">
+          <span class="header__title">LIGHT</span>
+          <i class="ri-sun-fill header__icon"></i>
+        </div>
+
+        <div class="header__theme-dark theme__selector">
+          <span class="header__title">DARK</span>
+          <i class="ri-moon-fill header__icon"></i>
+        </div>
+      </div>
+    </header>
+
+    <!--=============== SEARCHBAR ===============-->
+    <section class="searchbar">
+      <form class="searchbar__form" onsubmit="return false">
+        <div class="searchbar__input">
+          <i class="ri-search-line searchbar__icon"></i>
+          <input type="text" class="searchbar__textfield"
+          placeholder="Search GitHub username...">
+        </div>
+
+        <button class="searchbar__button button" type="submit">Search</button>
+      </form>
+
+    </section>
+
+    <!--=============== RESULT ===============-->
+    <section class="result">
+      <div class="result__container">
+        <div class="result__profile">
+          <img src="assets/imgs/test.png" alt="" class="result__profile-img">
+
+          <div class="result__profile-info">
+            <h2 class="result__profile-title">The Octocat</h2>
+            <a href="" class="result__profile-link">@octocat</a>
+            <span class="result__profile-date">Joined 25 Jan 2011</span>
+          </div>
+        </div>
+
+        <div class="result__info">
+          <p class="result__description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Aenean aliquet purus et libero laoreet volutpat.
+            Praesent dignissim, urna eget porta porttitor,
+            ligula lacus ultricies risus, et dapibus odio turpis ac elit.
+          </p>
+
+          <div class="result__stats">
+            <div class="result__stats-card">
+              <h3 class="result__stats-title">Repos</h3>
+              <span class="result__stats-count">8</span>
+            </div>
+            
+            <div class="result__stats-card">
+              <h3 class="result__stats-title">Followers</h3>
+              <span class="result__stats-count">3938</span>
+            </div>
+
+            <div class="result__stats-card">
+              <h3 class="result__stats-title">Following</h3>
+              <span class="result__stats-count">9</span>
+            </div>
+          </div>
+
+          <div class="result__links">
+            <div class="result__links-card">
+              <i class="ri-map-pin-2-fill result__links-icon"></i>
+              <span class="result__links-text">San Francisco</span>
+            </div>
+
+            <div class="result__links-card">
+              <i class="ri-links-fill result__links-icon"></i>
+              <span class="result__links-text">http://github.blog</span>
+            </div>
+
+            <div class="result__links-card">
+              <i class="ri-twitter-fill result__links-icon disabled"></i>
+              <span class="result__links-text disabled">Not Available</span>
+            </div>
+
+            <div class="result__links-card">
+              <i class="ri-community-fill result__links-icon"></i>
+              <span class="result__links-text">@github</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== JS ===============-->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
