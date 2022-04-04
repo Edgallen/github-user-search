@@ -1,5 +1,7 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap');/*=============== VARIABLES CSS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
 :root {
   /*========== Colors ==========*/
   /* background */
@@ -9,7 +11,10 @@
   /* text */
   --title-color: #FBFBFE;
   --text-color: #D9E1EE;
-  --text-alt-color: #959CAE;
+  --stats-color: #D9E1EE;
+  --links-color: #D9E1EE;
+  --button-text-color: #FBFBFE;
+  --text-alt-color: #9DA5BE;
   
   /* functional */
   --button-color: #0178FD;
@@ -34,6 +39,7 @@
   --font-regular: 400;
   --font-medium: 500;
   --font-semibold: 600;
+  --font-bold: 700;
 
   /*========== Margins ==========*/
   --m-0-25: .25rem;
@@ -53,6 +59,25 @@
   --z-fixed: 100;
 }
 
+.light__theme {
+  /* background */
+  --background-color: #F4F7FE;
+  --background-alt-color: #FFFFFF;
+
+  /* text */
+  --title-color: #353944;
+  --text-color: #9198A3;
+  --stats-color: #4F5561;
+  --links-color: #3C5177;
+  --button-text-color: #FBFBFE;
+  --text-alt-color: #4F5561;
+  
+  /* functional */
+  --button-color: #0178FD;
+  --functional-color: #1561BC;
+  --disabled-color: #7C869F;
+}
+
 /*=============== BASE ===============*/
 *{
   box-sizing: border-box;
@@ -68,6 +93,7 @@ body{
   background-color: var(--background-color);
   font-family: var(--body-font);
   color: var(--text-color);
+  transition: .4s;
 }
 
 h1,h2,h3{
@@ -106,13 +132,15 @@ span{
   display: flex;
   align-items: center;
   gap: var(--m-0-75);
+  cursor: pointer;
+  transition: .3s;
 }
 
 .button {
   font-family: var(--body-font);
   font-weight: var(--font-medium);
   letter-spacing: .04rem;
-  color: var(--title-color);
+  color: var(--button-text-color);
   border-radius: .5rem;
   background-color: var(--button-color);
   padding: var(--m-0-5) var(--m-1);
@@ -156,10 +184,6 @@ span{
 
 .header__icon {
   font-size: var(--normal-font-size);
-}
-
-.header__theme-dark { /* Временный селектор */
-  display: none;
 }
 
 /*=============== SEARCHBAR ===============*/
@@ -262,8 +286,9 @@ span{
 }
 
 .result__stats-count {
+  color: var(--title-color);
   font-size: var(--h3-font-size);
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-bold);
 }
 
 .result__links {
@@ -281,10 +306,11 @@ span{
 }
 
 .result__links-icon {
-  color: var(--title-color);
+  color: var(--links-color);
 }
 
 .result__links-text {
+  color: var(--links-color);
   font-size: small;
   word-spacing: .2rem;
 }
@@ -292,4 +318,20 @@ span{
 /* Active states */
 .disabled {
   color: var(--disabled-color);
+}
+
+.opacity-hidden {
+  opacity: 0;
+}
+
+.display-none {
+  display: none;
+}
+
+/* Preload animation block */
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="preload" lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +26,7 @@
           <i class="ri-sun-fill header__icon"></i>
         </div>
 
-        <div class="header__theme-dark theme__selector">
+        <div class="header__theme-dark theme__selector display-none opacity-hidden">
           <span class="header__title">DARK</span>
           <i class="ri-moon-fill header__icon"></i>
         </div>
@@ -49,68 +49,10 @@
 
     <!--=============== RESULT ===============-->
     <section class="result">
-      <div class="result__container">
-        <div class="result__profile">
-          <img src="assets/imgs/test.png" alt="" class="result__profile-img">
-
-          <div class="result__profile-info">
-            <h2 class="result__profile-title">The Octocat</h2>
-            <a href="" class="result__profile-link">@octocat</a>
-            <span class="result__profile-date">Joined 25 Jan 2011</span>
-          </div>
-        </div>
-
-        <div class="result__info">
-          <p class="result__description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Aenean aliquet purus et libero laoreet volutpat.
-            Praesent dignissim, urna eget porta porttitor,
-            ligula lacus ultricies risus, et dapibus odio turpis ac elit.
-          </p>
-
-          <div class="result__stats">
-            <div class="result__stats-card">
-              <h3 class="result__stats-title">Repos</h3>
-              <span class="result__stats-count">8</span>
-            </div>
-            
-            <div class="result__stats-card">
-              <h3 class="result__stats-title">Followers</h3>
-              <span class="result__stats-count">3938</span>
-            </div>
-
-            <div class="result__stats-card">
-              <h3 class="result__stats-title">Following</h3>
-              <span class="result__stats-count">9</span>
-            </div>
-          </div>
-
-          <div class="result__links">
-            <div class="result__links-card">
-              <i class="ri-map-pin-2-fill result__links-icon"></i>
-              <span class="result__links-text">San Francisco</span>
-            </div>
-
-            <div class="result__links-card">
-              <i class="ri-links-fill result__links-icon"></i>
-              <span class="result__links-text">http://github.blog</span>
-            </div>
-
-            <div class="result__links-card">
-              <i class="ri-twitter-fill result__links-icon disabled"></i>
-              <span class="result__links-text disabled">Not Available</span>
-            </div>
-
-            <div class="result__links-card">
-              <i class="ri-community-fill result__links-icon"></i>
-              <span class="result__links-text">@github</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      
     </section>
 
     <!--=============== JS ===============-->
-    <script src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
   </body>
 </html>
