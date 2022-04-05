@@ -1,3 +1,4 @@
+// Проверка наличия ссылок профиля
 function linkCheck(value) {
   const link = {
     class: '',
@@ -18,20 +19,36 @@ function linkCheck(value) {
   
 }
 
-// Остановился тут !!!!!
+// Определение даты (дата поступает в виде '2021-02-09T19:58:33Z')
 function getDate(date) {
+  let month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
   const obj = {
-    day: '',
-    month: '',
-    year: ''
+    day: date.slice(8, 10),
+    month: parseInt(date.slice(5, 7)),
+    year: date.slice(0, 4)
   }
 
+  return `Joined ${obj.day} ${month[obj.month - 1]} ${obj.year}`
 }
 
-function renderResult(name, avatar, date, bio, repos, followers, following, location, twitter, blog) {
+// Проверка на наличие результата
+function removeResult() {
+  const searchResult = document.querySelector('.result__container');
+
+  if (searchResult == null) {
+    return
+  } else {
+    searchResult.remove();
+  }
+}
+
+// Рендер результата
+function renderResult(name, avatar, date, bio, repos, followers, following, location, twitter, mail, blog) {
   const resultSection = document.querySelector('.result');
   const newElement = document.createElement('div');
-  newElement.classList.add('result__container')
+  newElement.classList.add('result__container');
+  newElement.classList.add('shadow');
 
   newElement.innerHTML = `
     <div class="result__profile">
@@ -40,7 +57,7 @@ function renderResult(name, avatar, date, bio, repos, followers, following, loca
       <div class="result__profile-info">
         <h2 class="result__profile-title">${name}</h2>
         <a href="https://github.com/${name}" class="result__profile-link">@${name}</a>
-        <span class="result__profile-date">Joined 25 Jan 2011</span>
+        <span class="result__profile-date">${getDate(date)}</span>
       </div>
     </div>
 
@@ -83,8 +100,8 @@ function renderResult(name, avatar, date, bio, repos, followers, following, loca
         </div>
 
         <div class="result__links-card">
-          <i class="ri-community-fill result__links-icon"></i>
-          <span class="result__links-text">@github</span>
+          <i class="ri-mail-line result__links-icon ${linkCheck(mail).class}"></i>
+          <span class="result__links-text ${linkCheck(mail).class}">${linkCheck(mail).argument}</span>
         </div>
       </div>
     </div>
@@ -93,25 +110,49 @@ function renderResult(name, avatar, date, bio, repos, followers, following, loca
   resultSection.appendChild(newElement);
 }
 
+function renderNotFound() {
+  const resultSection = document.querySelector('.result');
+  const newElement = document.createElement('div');
+  newElement.classList.add('result__container');
+  newElement.classList.add('shadow');
+
+  newElement.innerHTML = `
+    <div class="result__notFound">
+      <i class="ri-user-search-fill result__notFound-icon"></i>
+      <span class="result__notFound-text">User not found</span>
+    </div>
+  `;
+
+  resultSection.appendChild(newElement);
+}
+
+// Запрос
 async function userSearch(userName) {
 
   await fetch(`https://api.github.com/users/${userName}`)
   .then(response => response.json())
   .then(data => {
-    console.log(data);
-    console.log(data.created_at.slice(0, 2));
-    renderResult(
-      data.login,
-      data.avatar_url,
-      data.created_at,
-      data.bio,
-      data.public_repos,
-      data.followers,
-      data.following,
-      data.location,
-      data.twitter_username,
-      data.blog
-    );
+
+    if (data.message == 'Not Found') {
+      removeResult();
+      renderNotFound();
+    } else {
+      removeResult();
+      renderResult(
+        data.login,
+        data.avatar_url,
+        data.created_at,
+        data.bio,
+        data.public_repos,
+        data.followers,
+        data.following,
+        data.location,
+        data.twitter_username,
+        data.email,
+        data.blog
+      );
+    }
+
   })
   .catch(err => {
     console.log('Error', err.message);

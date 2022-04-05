@@ -18,6 +18,7 @@
   
   /* functional */
   --button-color: #0178FD;
+  --button-hover-color: #1561BC;
   --functional-color: #1561BC;
   --disabled-color: #7C869F;
 
@@ -74,6 +75,7 @@
   
   /* functional */
   --button-color: #0178FD;
+  --button-hover-color: #1561BC;
   --functional-color: #1561BC;
   --disabled-color: #7C869F;
 }
@@ -144,6 +146,11 @@ span{
   border-radius: .5rem;
   background-color: var(--button-color);
   padding: var(--m-0-5) var(--m-1);
+  transition: .4s;
+}
+
+.button:hover {
+  background-color: var(--button-hover-color);
 }
 
 /*=============== LAYOUT ===============*/
@@ -194,6 +201,7 @@ span{
 
 .searchbar__form {
   display: flex;
+  width: 320px;
   gap: var(--m-2);
   border-radius: .6rem;
   padding: var(--m-0-5);
@@ -234,8 +242,8 @@ span{
 .result__container {
   display: flex;
   flex-direction: column;
+  width: 320px;
   gap: var(--m-1-5);
-  max-width: 326px;
   padding: var(--m-1-5);
   border-radius: .6rem;
   background-color: var(--background-alt-color);
@@ -315,6 +323,25 @@ span{
   word-spacing: .2rem;
 }
 
+.result__notFound {
+  display: flex;
+  align-items: center;
+  gap: var(--m-0-5);
+  justify-content: center;
+}
+
+.result__notFound-icon {
+  font-size: var(--normal-font-size);
+  color: var(--links-color);
+}
+
+.result__notFound-text {
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  color: var(--links-color);
+}
+
+
 /* Active states */
 .disabled {
   color: var(--disabled-color);
@@ -326,6 +353,10 @@ span{
 
 .display-none {
   display: none;
+}
+
+.shadow {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 /* Preload animation block */
