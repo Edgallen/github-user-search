@@ -48,6 +48,7 @@
   --m-0-75: .75rem;
   --m-1: 1rem;
   --m-1-5: 1.5rem;
+  --m-1-75: 1.75rem;
   --m-2: 2rem;
   --m-2-5: 2.5rem;
   --m-3: 3rem;
@@ -202,7 +203,7 @@ span{
 .searchbar__form {
   display: flex;
   width: 320px;
-  gap: var(--m-2);
+  gap: var(--m-1-75);
   border-radius: .6rem;
   padding: var(--m-0-5);
   background-color: var(--background-alt-color);
@@ -252,6 +253,10 @@ span{
 .result__profile {
   display: flex;
   gap: var(--m-2);
+}
+
+.result__profile-title {
+  word-break: break-all;
 }
 
 .result__profile-img {
@@ -345,6 +350,8 @@ span{
 /* Active states */
 .disabled {
   color: var(--disabled-color);
+  cursor: default;
+  pointer-events: none;
 }
 
 .opacity-hidden {
@@ -357,6 +364,76 @@ span{
 
 .shadow {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+/*=============== MEDIA QUERIES ===============*/
+/* For tine devices */
+@media screen and (max-width: 374px) {
+  .button {
+    padding: var(--m-0-5) var(--m-0-75);
+  }
+
+  .header {
+    margin: var(--m-2) var(--m-0-75) var(--m-1-5) var(--m-0-75);
+  }
+
+  .searchbar__form {
+    width: 270px;
+    gap: var(--m-0-75);
+  }
+  .searchbar__input {
+    gap: var(--m-0-5);
+  }
+  .searchbar__textfield {
+    font-size: var(--smaller-font-size);
+  }
+  .searchbar__textfield::placeholder {
+    font-size: var(--smaller-font-size);
+  }
+
+  .result__container {
+    width: 270px;
+    padding: var(--m-0-75) var(--m-0-75) var(--m-0-75) var(--m-0-75);
+    margin-bottom: var(--m-1);
+  }
+  .result__profile {
+    gap: var(--m-0-75);
+  }
+  .result__stats {
+    padding: var(--m-0-75) var(--m-0-75);
+  }
+  .result__links {
+    max-height: none;
+    flex-wrap: nowrap;
+  }
+}
+
+/* For Medium devices */
+@media screen and (min-width: 767px) {
+  .header__container {
+    width: 550px;
+  }
+
+  .searchbar__form {
+    width: 550px;
+    gap: 16rem;
+  }
+
+  .result__container {
+    width: 550px;
+    gap: var(--m-0-75);
+  }
+  .result__profile-date {
+    position: absolute;
+    transform: translate(250px, 10px);
+  }
+  .result__info {
+    margin-left: 112px;
+  }
+  .result__profile-link {
+    margin-top: var(--m-0-5);
+  }
+  
 }
 
 /* Preload animation block */

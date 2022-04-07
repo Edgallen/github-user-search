@@ -19,6 +19,19 @@ function linkCheck(value) {
   
 }
 
+// Проверка длины ссылки
+function sliceLink(link) {
+  console.log(link.includes('https'));
+
+  if (link.length >= 20 && link.includes('https')) {
+    return `${link.slice(12, 28)}...`
+  } else if (link.length >= 20) {
+    return `${link.slice(0, 20)}...`
+  } else {
+    return
+  }
+}
+
 // Определение даты (дата поступает в виде '2021-02-09T19:58:33Z')
 function getDate(date) {
   let month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", 
@@ -56,7 +69,7 @@ function renderResult(name, avatar, date, bio, repos, followers, following, loca
 
       <div class="result__profile-info">
         <h2 class="result__profile-title">${name}</h2>
-        <a href="https://github.com/${name}" class="result__profile-link">@${name}</a>
+        <a href="https://github.com/${name}" target="_blank" class="result__profile-link">@${name}</a>
         <span class="result__profile-date">${getDate(date)}</span>
       </div>
     </div>
@@ -91,7 +104,7 @@ function renderResult(name, avatar, date, bio, repos, followers, following, loca
 
         <div class="result__links-card">
           <i class="ri-links-fill result__links-icon ${linkCheck(blog).class}"></i>
-          <a href="" class="result__links-text ${linkCheck(blog).class}">${linkCheck(blog).argument}</a>
+          <a href="${linkCheck(blog).argument}" target="_blank" class="result__links-text ${linkCheck(blog).class}">${sliceLink(linkCheck(blog).argument)}</a>
         </div>
 
         <div class="result__links-card">
